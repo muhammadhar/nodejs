@@ -1,0 +1,24 @@
+pipeline
+{
+    agent any
+        tools
+        {
+            nodejs "16.20.2"
+        }
+        stages
+        {
+            stage('version npm')
+            {
+                steps
+                {
+                sh 'npm version'
+                }
+            }
+            stage('clone github') 
+            {
+            steps {
+                git 'https://github.com/thezeeshanasghar/sha.git'
+            }
+            }
+         }
+}
